@@ -134,3 +134,29 @@ INSERT INTO vendas (Dia_Venda, qtd_vendida, valor, id_livro2) VALUES
 	('2023-10-20', 2, 66.00, 20);
     
 Select * from Vendas;
+
+
+ select Nome, 
+	Nascimento, 
+	timestampdiff(year, Nascimento, curdate()) as IdadeFalecido_Atual 
+    from Autor 
+    order by Nascimento asc;
+    
+select nome from autor where país = "Brasil";
+
+select autor.nome, livro.nome 
+	from autor  
+	join livro 
+	on autor.Id = Livro.Id_autor 
+	group by Livro.nome;
+    
+select livro.nome, 
+	livro.preço, 
+	vendas.qtd_vendida,
+	livro.preço*vendas.qtd_vendida as Preço_Total 
+	from Livro 
+    join vendas
+    on livro.Id = vendas.id_livro2;
+    
+
+
